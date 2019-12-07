@@ -52,9 +52,10 @@ function promptAmount(res, id){
 
 function confirmReceipt(res, id, num){
     console.log(`Pending Reciept:\n==================\n${num} X ${JSON.stringify(res[id])}`)
-
+    // confirm 
+    //checkout or restart
 }
 
 function checkout(){
-    
+    // editing database?
 }

@@ -52,6 +52,7 @@ function promptAmount(res, id){
 
 function confirmReceipt(res, id, num){
     console.log(`Pending Reciept:\n==================\n${num} X ${JSON.stringify(res[id])}`)
+    // include total cost ~~~~ tax? date/moment?
     // confirm 
     //checkout or restart
 }

@@ -21,7 +21,7 @@ function renderList(){
             console.log(`${e.id}) ${e.product_name} || $ ${e.price} | ${e.department_name} | ${e.stock_quantity}\n`)
         });
         if (err) throw err;
-        promptId(res);
+        promptId(res); // if shopping continue option?
     })
 }
 
@@ -73,6 +73,17 @@ function confirmReceipt(res, id, num){
     })
 }
 
-function checkout(){
-    // editing database?
+function checkout(res, id, num){
+    let q = (parseInt(res[id].stock_quantity) - num);
+    id++;
+    connection.query("UPDATE products SET ? WHERE ?",[
+        {stock_quantity: q},
+        {id}    
+    ], function(error) {
+        // if (error) throw err;
+        if (error) console.log(error);
+        connection.end(
+        console.log(`\nThank you!\nYour purchase is now complete.\nPlease come again.\n`)
+        )
+    })
 }

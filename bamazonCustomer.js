@@ -10,14 +10,20 @@ const connection = mysql.createConnection({
 })
 
 connection.connect(function(err) {
+    if (err) throw err;
+    renderList();
+});
+
+function renderList(){
     connection.query("SELECT * FROM products", function(err, res) {
+        console.log(`\nID) Product || Price /ea | Department | Inventory\n--------------------------------------------------`);
         res.forEach(e => {
-            console.log(`ID: ${e.id}) ${e.product_name} || $ ${e.price} /ea | ${e.department_name} | Inventory: ${e.stock_quantity}\n`)
+            console.log(`${e.id}) ${e.product_name} || $ ${e.price} | ${e.department_name} | ${e.stock_quantity}\n`)
         });
         if (err) throw err;
         promptId(res);
     })
-});
+}
 
 function promptId(res){
     inquirer.prompt([{
@@ -27,7 +33,7 @@ function promptId(res){
     }]).then(function(a){
         if (a.itemId > res.length || a.itemId <= 0){
             console.log(`Please select a Valid Product ID.`);
-            promptId(res);
+            renderList();
         } else {
             promptAmount(res, a.itemId - 1)
         }
@@ -51,10 +57,20 @@ function promptAmount(res, id){
 }
 
 function confirmReceipt(res, id, num){
-    console.log(`Pending Reciept:\n==================\n${num} X ${JSON.stringify(res[id])}`)
-    // include total cost ~~~~ tax? date/moment?
-    // confirm 
-    //checkout or restart
+    let total = (res[id].price * num * 1.07).toFixed(2);
+    console.log(` Pending Reciept:\n===================\n${num} X ${res[id].product_name} @ $${res[id].price}\n-------------------\n   Total: $${total}\n`);
+    inquirer.prompt([{
+        type: 'confirm',
+        message: "",
+        default: true,
+        name: 'checkout'
+    }]).then(function(a){
+        if (a.checkout){
+            checkout(res, id, num);
+        } else {
+            renderList();
+        }
+    })
 }
 
 function checkout(){

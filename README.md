@@ -5,6 +5,11 @@
 Database of _(minor)_ Inventory with Id's, Names, Quantity, Department, & Price that is referanced from terminol for purchase of a selected item. Updating the Database to reflect the purchase with apropriately lower inventory on reciept conformation.
 
 ### Instructions:
+- Navigate to Relevant Directory
+- _Command Line:_ node bamazonCustomer.js _+ Enter_
+- Enter whole-Id# of Product you would like to purchase
+- Enter whole-number for the Amount of the Product you wish to purchase
+- Review and Confirm Reciept to Checkout
 
 ### Demonstration(s):
 

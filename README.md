@@ -12,6 +12,7 @@ Database of _(minor)_ Inventory with Id's, Names, Quantity, Department, & Price 
 - Review and Confirm Reciept to Checkout
 
 ### Demonstration(s):
+![Starting sqlDatabase SS](./media/bamazon-db.jpg)
 
 #### Technologies & Resources Used:
 * [Visual Studio Code](https://code.visualstudio.com/)

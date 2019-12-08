@@ -80,8 +80,7 @@ function checkout(res, id, num){
         {stock_quantity: q},
         {id}    
     ], function(error) {
-        // if (error) throw err;
-        if (error) console.log(error);
+        if (error) throw err;
         connection.end(
         console.log(`\nThank you!\nYour purchase is now complete.\nPlease come again.\n`)
         )

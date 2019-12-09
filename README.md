@@ -13,6 +13,8 @@ Database of _(minor)_ Inventory with Id's, Names, Quantity, Department, & Price 
 
 ### Demonstration(s):
 ![Starting sqlDatabase SS](./media/bamazon-db.jpg)
+![Demo Gif](./media/bamazon-gif.gif)
+![Updated sqlDatabase SS](./media/bamazon-db-after.jpg)
 
 #### Technologies & Resources Used:
 * [Visual Studio Code](https://code.visualstudio.com/)
